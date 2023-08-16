@@ -11,13 +11,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class AdminDetails implements UserDetails {
-
     private Admin admin;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for(Role role : admin.getRoles()) {
+        for(Role role : admin.getRoles()){
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return authorities;
